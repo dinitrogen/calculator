@@ -1,3 +1,51 @@
 h1 {
     color: blue;
 }
+
+#calcFrame {
+    border: 5px solid dodgerblue;
+    border-radius: 10px;
+    width: 305px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width:305px;
+    background-color: dodgerblue;
+}
+
+.container > div {
+    background-color: white;
+    color: black;
+    width: 70px;
+    margin: 5px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 30px;
+    border: 2px solid white;
+}
+
+.container > div:hover {
+    border: 2px solid black;
+    font-size: 35px;
+
+}
+
+#displayContainer {
+    display: flex;
+    justify-content: space-between;
+    width:305px;
+    background-color: dodgerblue;
+}
+
+#calcDisplay {
+    border: 2px solid black;
+    width: 300px;
+    margin: 5px;
+    font-size: 40px;
+    line-height: 70px;
+    background-color: white;
+    text-align: right;
+    padding-right: 10px;
+}
