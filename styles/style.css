@@ -24,12 +24,16 @@ h1 {
     line-height: 70px;
     font-size: 30px;
     border: 2px solid white;
+    user-select: none;
 }
 
 .container > div:hover {
     border: 2px solid black;
     font-size: 35px;
+}
 
+.container > div:hover:active {
+    background-color: gray;
 }
 
 #displayContainer {
