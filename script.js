@@ -1,21 +1,12 @@
-import {
-    add,
-    subtract,
-    sum,
-    multiply,
-    power,
-    factorial
-  } from './calculator.js';
 
-const calcDisplay = document.querySelector("#calcDisplay");
-
-    
 let displayText = "0";
 let operandA;
 let operandB;
 let operation;
 let resetDisplay = true;
 let operationStored = false;
+
+const calcDisplay = document.querySelector("#calcDisplay");
 calcDisplay.textContent = displayText;
 
 // Clear button press
@@ -32,7 +23,13 @@ buttonClear.addEventListener('click', () => {
 // Delete button press
 const buttonDel = document.querySelector("#buttonDel");
 buttonDel.addEventListener('click', () => {
-    displayText = displayText.slice(0, -1);
+    let displayTextStr = displayText.toString();
+    if (displayTextStr.length === 1) {
+        displayText = 0;
+        resetDisplay = true;
+    } else {
+        displayText = displayText.slice(0, -1);
+    }
     calcDisplay.textContent = displayText;
 });
 
@@ -47,12 +44,13 @@ numButtons.forEach((numButton) => {
 // Negative press
 const buttonNegative = document.querySelector("#buttonNegative");
 buttonNegative.addEventListener('click', () => {
-    if (displayText === "0") {
+    let displayTextStr = displayText.toString();
+    if (displayTextStr === "0" || displayTextStr === "0.") {
         return;
-    } else if (displayText.charAt(0) === "-") {
-        displayText = displayText.slice(1);
+    } else if (displayTextStr.charAt(0) === "-") {
+        displayText = displayTextStr.slice(1);
     } else {
-        displayText = `-${displayText}`;
+        displayText = `-${displayTextStr}`;
     }
     calcDisplay.textContent = displayText;
 });
@@ -88,7 +86,7 @@ buttonPercent.addEventListener('click', () => {
 // Equals press
 const buttonEqual = document.querySelector("#buttonEqual");
 buttonEqual.addEventListener('click', () => {
-    if (!operandA || !operationStored) {
+    if (!operandA|| !operationStored) {
         return;
     } else {
         operandB = displayText;
@@ -97,7 +95,7 @@ buttonEqual.addEventListener('click', () => {
             displayText = displayText.toString().slice(0, 11);
         }
         calcDisplay.textContent = displayText;
-        operandA = displayText;
+        operandA = null;
         operationStored = false;
         resetDisplay = true;
     }

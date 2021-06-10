@@ -1,9 +1,10 @@
 h1 {
-    color: blue;
+    color: dodgerblue;
 }
 
 #calcFrame {
     border: 5px solid dodgerblue;
+    box-shadow: 5px 5px gray;
     border-radius: 10px;
     width: 305px;
 }
